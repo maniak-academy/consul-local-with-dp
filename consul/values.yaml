@@ -16,18 +16,22 @@ global:
   # TLS configures whether Consul components use TLS.
   tls:
     enabled: true
+    enableAutoEncypt: true
     httpsOnly: false  # Metrics are exposed on 8500 only (http).  Anonymous policy requires Agent "read" if ACL enabled.
     # verify: false
-    caCert:
-      secretName: consul-ca-cert
-      secretKey: tls.crt
+    # caCert:
+    #   secretName: consul-ca-cert
+    #   secretKey: tls.crt
   acls:
     manageSystemACLs: true
-  metrics:
-    enabled: true
-    enableGatewayMetrics: true
-    enableAgentMetrics: true
-    agentMetricsRetentionTime: "59m"
+  gossipEncryption:
+    secretName: consul-gossip-encryption-key
+    secretKey: key
+  # metrics:
+  #   enabled: true
+  #   enableGatewayMetrics: true
+  #   enableAgentMetrics: true
+  #   agentMetricsRetentionTime: "59m"
 server:
   replicas: 1
   bootstrapExpect: 1
@@ -35,7 +39,7 @@ server:
     # When enabled, deploys a Kubernetes Service to reach the Consul servers.
     # @type: boolean
     enabled: true
-    type: NodePort
+    type: LoadBalancer
     # annotations: |
     #   service.beta.kubernetes.io/aws-load-balancer-type: "nlb-ip"
  
@@ -81,7 +85,7 @@ connectInject:
   apiGateway:
     manageExternalCRDs: true
     managedGatewayClass:
-      serviceType: ClusterIP
+      serviceType: LoadBalancer
      # useHostPorts: true
       # copyAnnotations:
       #   service:
@@ -131,7 +135,7 @@ meshGateway:
   log_level: "debug"
   service:
     enabled: true
-    type: ClusterIP
+    type: LoadBalancer
     #nodePort: 31915
     # annotations: |
     #   service.beta.kubernetes.io/aws-load-balancer-type: "nlb-ip"
@@ -139,7 +143,7 @@ meshGateway:
 ui:
   enabled: true
   service:
-    type: ClusterIP
+    type: LoadBalancer
   metrics:
     enabled: true # by default, this inherits from the value global.metrics.enabled
     provider: "prometheus"

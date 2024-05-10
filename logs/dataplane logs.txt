@@ -1,0 +1,47 @@
+er: discovered Consul servers: addresses=[172.16.10.210:8502]
+2024-05-10T20:02:51.936Z [INFO]  consul-server-connection-manager: current prioritized list of known Consul servers: addresses=[172.16.10.210:8502]
+2024-05-10T20:02:51.936Z [DEBUG] consul-server-connection-manager: switching to Consul server: address=172.16.10.210:8502
+2024-05-10T20:02:51.938Z [DEBUG] consul-server-connection-manager: gRPC resolver failed to update connection address: error="bad resolver state"
+2024-05-10T20:02:51.938Z [ERROR] consul-server-connection-manager: connection error: error="fetching supported dataplane features: rpc error: code = Unavailable desc = connection error: desc = \"transport: authentication handshake failed: tls: failed to verify certificate: x509: certificate signed by unknown authority\""
+2024-05-10T20:02:51.938Z [DEBUG] consul-server-connection-manager: backoff: retry after=2.584434212s
+2024-05-10T20:02:54.522Z [INFO]  consul-server-connection-manager: trying to connect to a Consul server
+2024-05-10T20:02:54.522Z [DEBUG] consul-server-connection-manager: Resolved DNS name: name=172.16.10.210 ip-addrs=["{172.16.10.210 }"]
+2024-05-10T20:02:54.522Z [INFO]  consul-server-connection-manager: discovered Consul servers: addresses=[172.16.10.210:8502]
+2024-05-10T20:02:54.522Z [INFO]  consul-server-connection-manager: current prioritized list of known Consul servers: addresses=[172.16.10.210:8502]
+2024-05-10T20:02:54.522Z [DEBUG] consul-server-connection-manager: switching to Consul server: address=172.16.10.210:8502
+2024-05-10T20:02:54.524Z [DEBUG] consul-server-connection-manager: gRPC resolver failed to update connection address: error="bad resolver state"
+2024-05-10T20:02:54.524Z [ERROR] consul-server-connection-manager: connection error: error="fetching supported dataplane features: rpc error: code = Unavailable desc = connection error: desc = \"transport: authentication handshake failed: tls: failed to verify certificate: x509: certificate signed by unknown authority\""
+2024-05-10T20:02:54.524Z [DEBUG] consul-server-connection-manager: backoff: retry after=4.8129878s
+2024-05-10T20:02:59.338Z [INFO]  consul-server-connection-manager: trying to connect to a Consul server
+2024-05-10T20:02:59.338Z [DEBUG] consul-server-connection-manager: Resolved DNS name: name=172.16.10.210 ip-addrs=["{172.16.10.210 }"]
+2024-05-10T20:02:59.338Z [INFO]  consul-server-connection-manager: discovered Consul servers: addresses=[172.16.10.210:8502]
+2024-05-10T20:02:59.338Z [INFO]  consul-server-connection-manager: current prioritized list of known Consul servers: addresses=[172.16.10.210:8502]
+2024-05-10T20:02:59.338Z [DEBUG] consul-server-connection-manager: switching to Consul server: address=172.16.10.210:8502
+2024-05-10T20:02:59.340Z [DEBUG] consul-server-connection-manager: gRPC resolver failed to update connection address: error="bad resolver state"
+2024-05-10T20:02:59.340Z [ERROR] consul-server-connection-manager: connection error: error="fetching supported dataplane features: rpc error: code = Unavailable desc = connection error: desc = \"transport: authentication handshake failed: tls: failed to verify certificate: x509: certificate signed by unknown authority\""
+2024-05-10T20:02:59.340Z [DEBUG] consul-server-connection-manager: backoff: retry after=5.139957888s
+2024-05-10T20:03:04.484Z [INFO]  consul-server-connection-manager: trying to connect to a Consul server
+2024-05-10T20:03:04.484Z [DEBUG] consul-server-connection-manager: Resolved DNS name: name=172.16.10.210 ip-addrs=["{172.16.10.210 }"]
+2024-05-10T20:03:04.484Z [INFO]  consul-server-connection-manager: discovered Consul servers: addresses=[172.16.10.210:8502]
+2024-05-10T20:03:04.484Z [INFO]  consul-server-connection-manager: current prioritized list of known Consul servers: addresses=[172.16.10.210:8502]
+2024-05-10T20:03:04.484Z [DEBUG] consul-server-connection-manager: switching to Consul server: address=172.16.10.210:8502
+2024-05-10T20:03:04.486Z [DEBUG] consul-server-connection-manager: gRPC resolver failed to update connection address: error="bad resolver state"
+2024-05-10T20:03:04.486Z [ERROR] consul-server-connection-manager: connection error: error="fetching supported dataplane features: rpc error: code = Unavailable desc = connection error: desc = \"transport: authentication handshake failed: tls: failed to verify certificate: x509: certificate signed by unknown authority\""
+2024-05-10T20:03:04.486Z [DEBUG] consul-server-connection-manager: backoff: retry after=4.555919796s
+2024-05-10T20:03:09.042Z [INFO]  consul-server-connection-manager: trying to connect to a Consul server
+2024-05-10T20:03:09.042Z [DEBUG] consul-server-connection-manager: Resolved DNS name: name=172.16.10.210 ip-addrs=["{172.16.10.210 }"]
+2024-05-10T20:03:09.042Z [INFO]  consul-server-connection-manager: discovered Consul servers: addresses=[172.16.10.210:8502]
+2024-05-10T20:03:09.042Z [INFO]  consul-server-connection-manager: current prioritized list of known Consul servers: addresses=[172.16.10.210:8502]
+2024-05-10T20:03:09.042Z [DEBUG] consul-server-connection-manager: switching to Consul server: address=172.16.10.210:8502
+2024-05-10T20:03:09.044Z [DEBUG] consul-server-connection-manager: gRPC resolver failed to update connection address: error="bad resolver state"
+2024-05-10T20:03:09.044Z [ERROR] consul-server-connection-manager: connection error: error="fetching supported dataplane features: rpc error: code = Unavailable desc = connection error: desc = \"transport: authentication handshake failed: tls: failed to verify certificate: x509: certificate signed by unknown authority\""
+2024-05-10T20:03:09.044Z [DEBUG] consul-server-connection-manager: backoff: retry after=15.044359113s
+2024-05-10T20:03:24.088Z [INFO]  consul-server-connection-manager: trying to connect to a Consul server
+2024-05-10T20:03:24.088Z [DEBUG] consul-server-connection-manager: Resolved DNS name: name=172.16.10.210 ip-addrs=["{172.16.10.210 }"]
+2024-05-10T20:03:24.088Z [INFO]  consul-server-connection-manager: discovered Consul servers: addresses=[172.16.10.210:8502]
+2024-05-10T20:03:24.088Z [INFO]  consul-server-connection-manager: current prioritized list of known Consul servers: addresses=[172.16.10.210:8502]
+2024-05-10T20:03:24.088Z [DEBUG] consul-server-connection-manager: switching to Consul server: address=172.16.10.210:8502
+2024-05-10T20:03:24.090Z [DEBUG] consul-server-connection-manager: gRPC resolver failed to update connection address: error="bad resolver state"
+2024-05-10T20:03:24.090Z [ERROR] consul-server-connection-manager: connection error: error="fetching supported dataplane features: rpc error: code = Unavailable desc = connection error: desc = \"transport: authentication handshake failed: tls: failed to verify certificate: x509: certificate signed by unknown authority\""
+2024-05-10T20:03:24.090Z [DEBUG] consul-server-connection-manager: backoff: retry after=11.534459332s
+

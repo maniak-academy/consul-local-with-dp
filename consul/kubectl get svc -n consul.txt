@@ -1,0 +1,11 @@
+kubectl get svc -n consul
+NAME                      TYPE           CLUSTER-IP       EXTERNAL-IP                   PORT(S)                                                                                     AGE
+consul                    ExternalName   <none>           consul.service.consul         <none>                                                                                      2d5h
+consul-connect-injector   ClusterIP      10.103.233.97    <none>                        443/TCP                                                                                     8d
+consul-dns                ClusterIP      10.108.51.64     <none>                        53/TCP,53/UDP                                                                               8d
+consul-expose-servers     LoadBalancer   10.108.133.127   172.16.10.210                 8500:30184/TCP,8501:31506/TCP,8301:32052/TCP,8300:31841/TCP,8502:32372/TCP                  8d
+consul-mesh-gateway       LoadBalancer   10.102.163.135   172.16.10.211                 443:32312/TCP                                                                               4d3h
+consul-server             ClusterIP      None             <none>                        8500/TCP,8501/TCP,8502/TCP,8301/TCP,8301/UDP,8302/TCP,8302/UDP,8300/TCP,8600/TCP,8600/UDP   8d
+consul-ui                 LoadBalancer   10.107.119.128   172.16.10.212                 80:31631/TCP,443:30589/TCP                                                                  8d
+mesh-gateway              ExternalName   <none>           mesh-gateway.service.consul   <none>                                                                                      2d5h
+prometheus-server         ClusterIP      10.102.248.186   <none>                        80/TCP  

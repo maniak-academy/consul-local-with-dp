@@ -23,25 +23,22 @@ global:
     bootstrapToken:
       secretName: consul-bootstrap-acl-token
       secretKey: token
+
   tls:
     enabled: true
-    # # Client attributes only.  Not needed for dataplane
-    # enableAutoEncrypt: true
-    # gossipEncryption:
-    #   secretName: consul-gossip-key
-    #   secretKey: gossipEncryptionKey
+    httpsOnly: false  # Metrics are exposed on 8500 only (http).  Anonymous policy requires Agent "read" if ACL enabled.
     caCert:
-      secretName: consul-ca-cert
+      secretName: consul-bootstrap-acl-token
       secretKey: tls.crt
 
 externalServers:
   enabled: true
-  hosts: ["consulexternal.maniak.lab"]
-  #tlsServerName: "server.mk1.consul"
+  hosts: ["172.16.10.210"]
+  tlsServerName: "server.mk1.consul"
   httpsPort: 8501
   grpcPort: 8502
   useSystemRoots: true
-  k8sAuthMethodHost: https://172.16.10.20:65314
+  k8sAuthMethodHost: https://172.16.10.23:6443
 
 dns:
   enabled: true
