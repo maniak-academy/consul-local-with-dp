@@ -15,7 +15,7 @@ global:
   enableConsulNamespaces: true
   adminPartitions:
     enabled: true
-    name: shared
+    name: sk1
   peering:
     enabled: true
   acls:
@@ -28,15 +28,15 @@ global:
     enabled: true
     httpsOnly: false  # Metrics are exposed on 8500 only (http).  Anonymous policy requires Agent "read" if ACL enabled.
     caCert:
-      secretName: consul-bootstrap-acl-token
+      secretName: consul-ca-cert
       secretKey: tls.crt
 
 externalServers:
   enabled: true
-  hosts: ["172.16.10.210"]
+  hosts: ["172.16.10.200"]
+  httpsPort: 443
+  grpcPort: 31014
   tlsServerName: "server.mk1.consul"
-  httpsPort: 8501
-  grpcPort: 8502
   useSystemRoots: true
   k8sAuthMethodHost: https://172.16.10.23:6443
 
@@ -69,7 +69,7 @@ meshGateway:
   replicas: 1
   service:
     enabled: true
-    type: ClusterIP
+    type: NodePort
     # https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.2/guide/service/annotations/#lb-type
     # annotations: |
     #   service.beta.kubernetes.io/aws-load-balancer-type: "nlb-ip"

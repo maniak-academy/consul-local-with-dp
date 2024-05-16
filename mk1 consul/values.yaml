@@ -36,13 +36,15 @@ server:
   replicas: 1
   bootstrapExpect: 1
   exposeService:
-    # When enabled, deploys a Kubernetes Service to reach the Consul servers.
-    # @type: boolean
-    enabled: true
-    type: LoadBalancer
-    # annotations: |
-    #   service.beta.kubernetes.io/aws-load-balancer-type: "nlb-ip"
- 
+    type: NodePort
+    nodePort:
+      ## all are random nodePorts and you can set your own
+      http: 31010
+      https: 31011
+      serf: 31012
+      rpc: 31013
+      grpc: 31014
+
   extraConfig: |
     {
       "log_level": "TRACE"
@@ -58,34 +60,24 @@ dns:
   enabled: true
   enableRedirection: true
 
-# syncCatalog:
-#   enabled: true 
-#   toConsul: true
-#   toK8S: false
-#   k8sAllowNamespaces: ["foo","appdemo","appdemo2","echo"]
-#   k8sDenyNamespaces: ["consul", "kube-system","longhorn-system", "argocd"]
-#   addK8SNamespaceSuffix: false
-#   consulNamespaces:
-#     mirroringK8S: true
-
 syncCatalog:
-  enabled: true
-  toConsul: true
-  toK8S: true
-  k8sAllowNamespaces: ["*"]
-  k8sDenyNamespaces: ["consul", "kube-system"]
+  enabled: false
+  toConsul: false
+  toK8S: false
+  # k8sAllowNamespaces: ["*"]
+  # k8sDenyNamespaces: ["consul", "kube-system"]
   addK8SNamespaceSuffix: false
   consulNamespaces:
     mirroringK8S: true
 
 connectInject:
   enabled: true
-  k8sAllowNamespaces: ['hashicups','echo','default']
-  k8sDenyNamespaces: []
+  # k8sAllowNamespaces: ['hashicups','echo','default']
+  # k8sDenyNamespaces: []
   apiGateway:
     manageExternalCRDs: true
     managedGatewayClass:
-      serviceType: LoadBalancer
+      serviceType: ClusterIP
      # useHostPorts: true
       # copyAnnotations:
       #   service:
@@ -135,19 +127,20 @@ meshGateway:
   log_level: "debug"
   service:
     enabled: true
-    type: LoadBalancer
-    #nodePort: 31915
+    type: NodePort
+    nodePort: 31915
     # annotations: |
     #   service.beta.kubernetes.io/aws-load-balancer-type: "nlb-ip"
 
 ui:
   enabled: true
   service:
-    type: LoadBalancer
+    type: ClusterIP
   metrics:
     enabled: true # by default, this inherits from the value global.metrics.enabled
     provider: "prometheus"
     baseURL: http://prometheus-server
-    
-prometheus:
-  enabled: true
+
+terminatingGateways:
+ # Enable terminating gateway deployment. Requires `connectInject.enabled=true`.
+ enabled: true
