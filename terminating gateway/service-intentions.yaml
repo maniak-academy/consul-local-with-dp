@@ -1,0 +1,11 @@
+apiVersion: consul.hashicorp.com/v1alpha1
+kind: ServiceIntentions
+metadata:
+  name: google-https
+  namespace: ping
+spec:
+  destination:
+    name: google-https
+  sources:
+    - name: static-client
+      action: allow

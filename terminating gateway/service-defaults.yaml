@@ -1,0 +1,13 @@
+  apiVersion: consul.hashicorp.com/v1alpha1
+  kind: ServiceDefaults
+  metadata:
+    name: google-https
+    namespace: ping
+  spec:
+    protocol: tcp
+    destination:
+      addresses:
+        - "google.com"
+      port: 443
+
+
