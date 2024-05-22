@@ -1,7 +1,0 @@
-### Getting this error 
-
-kubectl exec deploy/static-client -n ping -- curl -vvvs https://google.com
-
-Defaulted container "consul-dataplane" out of: consul-dataplane, static-client, consul-connect-inject-init (init)
-error: Internal error occurred: error executing command in container: failed to exec in container: failed to start exec "db0d87ffeee88dfa9b0ceb0671f512dcf39bceb787aa876784129cb217bef2ca": OCI runtime exec failed: exec failed: unable to start container process: exec: "curl": executable file not found in $PATH: unknown
-

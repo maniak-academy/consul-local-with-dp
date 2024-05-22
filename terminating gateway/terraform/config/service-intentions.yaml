@@ -1,11 +1,10 @@
 apiVersion: consul.hashicorp.com/v1alpha1
 kind: ServiceIntentions
 metadata:
-  name: google-https
-  namespace: ping
+  name: managed-aws-rds
 spec:
   destination:
-    name: google-https
+    name: managed-aws-rds
   sources:
-    - name: static-client
+    - name: product-api
       action: allow

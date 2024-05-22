@@ -6,7 +6,7 @@ global:
   enableConsulNamespaces: true
   adminPartitions:
     enabled: true
-    name: "consul"
+    name: default
   enterpriseLicense:
     secretName: consul-ent-license
     secretKey: key
@@ -17,12 +17,16 @@ global:
       - "*.maniak.lab"
   acls:
     manageSystemACLs: true
+  metrics:
+    enabled: true
+    enableGatewayMetrics: true
 dns:
   enabled: true
   enableRedirection: true
 syncCatalog:
   enabled: true
-  toConsul: true
+  default: false
+  toConsul: false
   toK8S: false
   # k8sAllowNamespaces: ["syncfakeservice","ping","echo"]
   # k8sDenyNamespaces: []
@@ -42,6 +46,10 @@ server:
       grpc: 31014
 ui:
   enabled: true
+  metrics:
+    enabled: true # by default, this inherits from the value global.metrics.enabled
+    provider: "prometheus"
+    baseURL: http://prometheus-server
   service:
     type: NodePort
     nodePort:
@@ -49,7 +57,6 @@ ui:
 connectInject:
   enabled: true
   default: false
-  name: consul-connect-injector
   # k8sAllowNamespaces: ["hashicups","fakeservice","consul","ping","echo"]
   # k8sDenyNamespaces: []
   apiGateway:
@@ -63,4 +70,8 @@ connectInject:
   cni:
     enabled: true
 terminatingGateways:
+  enabled: true
+  defaults:
+    consulNamespaces: "consul"
+prometheus:
   enabled: true
