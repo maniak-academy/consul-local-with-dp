@@ -2,11 +2,11 @@ global:
   enabled: true
   name: consul
   datacenter: maniak
-  image: hashicorp/consul-enterprise:1.18.1-ent
+  image: hashicorp/consul-enterprise:1.18.2-ent
   enableConsulNamespaces: true
   adminPartitions:
     enabled: true
-    name: default
+    name: "consul"
   enterpriseLicense:
     secretName: consul-ent-license
     secretKey: key
@@ -23,9 +23,9 @@ dns:
 syncCatalog:
   enabled: true
   toConsul: true
-  toK8S: true
-  k8sAllowNamespaces: ["syncfakeservice"]
-  k8sDenyNamespaces: []
+  toK8S: false
+  # k8sAllowNamespaces: ["syncfakeservice","ping","echo"]
+  # k8sDenyNamespaces: []
   addK8SNamespaceSuffix: false
   consulNamespaces:
     mirroringK8S: true
@@ -44,13 +44,14 @@ ui:
   enabled: true
   service:
     type: NodePort
-
+    nodePort:
+      https: 31443
 connectInject:
   enabled: true
   default: false
   name: consul-connect-injector
-  k8sAllowNamespaces: ["hashicups","fakeservice","consul","ping"]
-  k8sDenyNamespaces: []
+  # k8sAllowNamespaces: ["hashicups","fakeservice","consul","ping","echo"]
+  # k8sDenyNamespaces: []
   apiGateway:
     manageExternalCRDs: true
     managedGatewayClass:
@@ -59,9 +60,7 @@ connectInject:
     defaultEnabled: true
   consulNamespaces:
     mirroringK8S: true
-    consulDestinationNamespace: "default"
   cni:
     enabled: true
-
 terminatingGateways:
   enabled: true
